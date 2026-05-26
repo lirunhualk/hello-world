@@ -10,18 +10,18 @@ def generate_question():
     operators = ['+', '-', '×', '÷']
     operator = random.choice(operators)
     if operator == '+':
-        num1 = random.randint(1,199)
-        num2 = random.randint(1,199)
+        num1 = random.randint(1,999)
+        num2 = random.randint(1,999)
     elif operator == '-':
-        num1 = random.randint(1,199)
-        num2 = random.randint(1,99)
+        num1 = random.randint(1,999)
+        num2 = random.randint(1,999)
         num1, num2 = max(num1, num2), min(num1, num2)
     elif operator == '×':
-        num1 = random.randint(2,99)
-        num2 = random.randint(2,9)
+        num1 = random.randint(2,69)
+        num2 = random.randint(2,69)
     elif operator == '÷':
-        num1 = random.randint(2,9)
-        num2 = random.randint(2,9)
+        num1 = random.randint(2,69)
+        num2 = random.randint(2,19)
         num1 = num1 * num2
     question = f"{num1} {operator} {num2} = "
     return question
@@ -55,5 +55,5 @@ def save_exam_to_pdf(filename,questions,questions_per_page=148,columns=4):
 # 生成试卷
 if not os.path.exists(f"./data/{dt}"):
     os.makedirs(f"./data/{dt}")
-exam_questions = generate_exam(148*10)
+exam_questions = generate_exam(148*2)
 save_exam_to_pdf(f"./data/{dt}/1.pdf", exam_questions)
